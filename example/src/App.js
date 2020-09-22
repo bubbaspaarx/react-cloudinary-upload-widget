@@ -1,12 +1,16 @@
 import React from 'react'
-import { useMyHook } from 'react-cloudinary-upload-widget'
+import Widget from 'react-cloudinary-upload-widget'
 
 const App = () => {
-  const example = useMyHook()
   return (
-    <div>
-      {example}
-    </div>
+    <>
+      <Widget
+        cloudName={'goatagency'}
+        uploadPreset={'preset1'}
+        buttonText={'Upload'}
+        style={null}
+      />
+    </>
   )
 }
 export default App
