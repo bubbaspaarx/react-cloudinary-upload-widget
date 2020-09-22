@@ -1,6 +1,6 @@
 # react-cloudinary-upload-widget
 
-> react wrapper for cloudinary upload widget
+> react wrapper for cloudinary upload widget. Currently only working with unsigned uploads. Please check you have an upload preset set and it accepts unsigned uploads. Support for signed uploads will be added soon. 
 
 [![NPM](https://img.shields.io/npm/v/react-cloudinary-upload-widget.svg)](https://www.npmjs.com/package/react-cloudinary-upload-widget) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -13,19 +13,20 @@ npm install --save react-cloudinary-upload-widget
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import { useMyHook } from 'react-cloudinary-upload-widget'
+import Widget from 'react-cloudinary-upload-widget'
 
 const Example = () => {
-  const example = useMyHook()
   return (
-          <Widget
-        cloudName={"my_cloud_name"}
-        uploadPreset={""}
-        buttonText={buttonText}
-        style={style}
+    <>
+      <Widget
+        cloudName={'example_cloudname'}
+        uploadPreset={'preset1'}
+        buttonText={'Upload'}
+        style={null} //default styling will be overridden
       />
+    </>
   )
 }
 ```
