@@ -20,7 +20,12 @@ import { useMyHook } from 'react-cloudinary-upload-widget'
 const Example = () => {
   const example = useMyHook()
   return (
-    <div>{example}</div>
+          <Widget
+        cloudName={"my_cloud_name"}
+        uploadPreset={""}
+        buttonText={buttonText}
+        style={style}
+      />
   )
 }
 ```
@@ -32,3 +37,6 @@ MIT © [bubbaspaarx](https://github.com/bubbaspaarx)
 ---
 
 This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).
+
+
+
