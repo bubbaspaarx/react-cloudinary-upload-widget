@@ -19,14 +19,12 @@ import Widget from 'react-cloudinary-upload-widget'
 
 const Example = () => {
   return (
-    <>
-      <Widget
-        cloudName={'example_cloudname'}
-        uploadPreset={'preset1'}
-        buttonText={'Upload'}
-        style={null} //default styling will be overridden
-      />
-    </>
+    <Widget
+      cloudName={'example_cloudname'}
+      uploadPreset={'preset1'}
+      buttonText={'Upload'}
+      style={null} //default styling will be overridden
+    />
   )
 }
 ```
