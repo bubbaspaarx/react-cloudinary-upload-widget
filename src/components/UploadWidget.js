@@ -5,6 +5,9 @@ import WidgetButton from './WidgetButton'
 import myWidget from '../functions/myWidget'
 
 const UploadWidget = ({
+  sources = [],
+  sourceKeys = null,
+  resourceType = 'auto',
   cloudName = null,
   uploadPreset = null,
   buttonText = null,
@@ -27,6 +30,9 @@ const UploadWidget = ({
   useScript('https://widget.cloudinary.com/v2.0/global/all.js')
   const myWidgetFunction = () =>
     myWidget(
+      sources,
+      sourceKeys,
+      resourceType,
       cloudName,
       uploadPreset,
       folder,

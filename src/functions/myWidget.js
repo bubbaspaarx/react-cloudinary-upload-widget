@@ -1,4 +1,9 @@
+import generateSignature from '../functions/generateSignature'
+
 const myWidget = (
+  sources,
+  sourceKeys,
+  resourceType,
   cloudName,
   uploadPreset,
   folder,
@@ -16,12 +21,13 @@ const myWidget = (
   use_filename,
   unique_filename
 ) => {
-  debugger
-  const defaultPublicId = 'image_upload'
   const widget =
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
       {
+        showCompletedButton: true,
+        sources: sources,
+        ...(sourceKeys && sourceKeys),
         cloudName: cloudName,
         uploadPreset: uploadPreset,
         folder: folder,
@@ -37,7 +43,8 @@ const myWidget = (
               withCredentials,
               customPublicId,
               eager,
-              apiKey
+              apiKey,
+              resourceType
             })
         })
       },
@@ -46,10 +53,12 @@ const myWidget = (
           logging && console.log('Done! Here is the image info: ', result.info)
           logging && console.log(result)
           !!onSuccess && onSuccess(result)
-        } else {
+        } else if (!!error) {
           !!onFailure
             ? onFailure({ error: error, result: result })
-            : console.log('failed')
+            : logging && console.log({ error: error, result: result })
+        } else {
+          logging && console.log(result)
         }
       }
     )

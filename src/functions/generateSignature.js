@@ -1,6 +1,6 @@
 import { getterFunction } from './getterFunction'
 
-export default (
+const generateSignature = (
   cb,
   params,
   {
@@ -8,11 +8,13 @@ export default (
     accepts,
     contentType,
     withCredentials,
-    customPublicId
+    customPublicId,
+    eager,
+    apiKey,
+    resourceType
   }
 ) => {
   params = [].concat(params) //params can be a single object or an array of objects
-  debugger
   Promise.all(
     params.map((req) => {
       const uploadParams = req
@@ -39,7 +41,7 @@ export default (
           {
             signature: response,
             api_key: apiKey,
-            resource_type: 'auto'
+            resource_type: resourceType
           },
           uploadParams
         )
@@ -49,3 +51,5 @@ export default (
     cb(results.length === 1 ? results[0] : results)
   })
 }
+
+export default generateSignature
