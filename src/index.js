@@ -1,46 +1,41 @@
 import React from 'react'
+import UploadWidget from './components/UploadWidget'
+// import genSignature from './functions/generateSignature'
 
-import useScript from './useScript'
+// export const Widget = ({
+//   cloudName,
+//   uploadPreset,
+//   buttonText,
+//   style,
+//   folder,
+//   cropping,
+//   uploadSignature,
+//   onSuccess,
+//   onFailure,
+//   logging,
+//   imageName,
+//   eager,
+//   url,
+//   apiKey
+// }) => (
+//   <UploadWidget
+//     cloudName={cloudName}
+//     uploadPreset={uploadPreset}
+//     buttonText={buttonText}
+//     style={style}
+//     folder={folder}
+//     cropping={cropping}
+//     uploadSignature={uploadSignature}
+//     onSuccess={onSuccess}
+//     onFailure={onFailure}
+//     logging={logging}
+//     imageName={imageName}
+//     eager={eager}
+//     url={url}
+//     apiKey={apiKey}
+//   />
+// )
 
-const Widget = ({ cloudName, uploadPreset, buttonText, style }) => {
-  useScript('https://widget.cloudinary.com/v2.0/global/all.js')
+export const Widget = (props) => <UploadWidget {...props} />
 
-  const myWidget = () => {
-    const widget =
-      !!window.cloudinary &&
-      window.cloudinary.createUploadWidget(
-        {
-          cloudName: cloudName,
-          uploadPreset: uploadPreset
-        },
-        (error, result) => {
-          if (!error && result && result.event === 'success') {
-            console.log('Done! Here is the image info: ', result.info)
-          }
-        }
-      )
-    widget.open()
-  }
-
-  return (
-    <>
-      <button
-        style={
-          style || {
-            color: 'white',
-            border: 'none',
-            width: '120px',
-            backgroundColor: 'green',
-            borderRadius: '4px',
-            height: '25px'
-          }
-        }
-        onClick={() => myWidget()}
-      >
-        {buttonText || 'Upload files'}
-      </button>
-    </>
-  )
-}
-
-export default Widget
+// export const generateSignature = () => genSignature
