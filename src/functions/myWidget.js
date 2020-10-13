@@ -1,4 +1,4 @@
-import generateSignature from '../functions/generateSignature'
+import generateSignature from './generateSignature'
 
 const myWidget = (
   sources,
@@ -25,7 +25,10 @@ const myWidget = (
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
       {
-        showCompletedButton: true,
+        // showCompletedButton: true,
+        multiple: true,
+        showAdvancedOptions: true,
+        showPoweredBy: false,
         sources: sources,
         ...(sourceKeys && sourceKeys),
         cloudName: cloudName,

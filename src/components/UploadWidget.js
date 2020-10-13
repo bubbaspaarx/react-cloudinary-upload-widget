@@ -1,6 +1,4 @@
 import React from 'react'
-
-import useScript from '../_hooks_/useScript'
 import WidgetButton from './WidgetButton'
 import myWidget from '../functions/myWidget'
 
@@ -27,7 +25,6 @@ const UploadWidget = ({
   use_filename = true,
   unique_filename = false
 }) => {
-  useScript('https://widget.cloudinary.com/v2.0/global/all.js')
   const myWidgetFunction = () =>
     myWidget(
       sources,
