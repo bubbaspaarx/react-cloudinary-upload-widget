@@ -35,7 +35,7 @@ const myWidget = (
         uploadPreset: uploadPreset,
         folder: folder,
         cropping: cropping,
-        use_filename: use_filename,
+        ...(generateSignatureUrl && { use_filename: use_filename }),
         ...(generateSignatureUrl && { unique_filename: unique_filename }),
         ...(generateSignatureUrl && {
           prepareUploadParams: (cb, params) =>

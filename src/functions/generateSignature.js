@@ -30,7 +30,7 @@ const generateSignature = (
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
             }),
-            use_filename: req.use_filename
+            ...(req.use_filename && { use_filename: req.use_filename })
           }
         },
         accepts: accepts,
