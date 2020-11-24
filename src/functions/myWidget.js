@@ -40,15 +40,21 @@ const myWidget = (
         ...(generateSignatureUrl && { unique_filename: unique_filename }),
         ...(generateSignatureUrl && {
           prepareUploadParams: async (cb, params) =>
-            await generateSignature(cb, params, {
-              generateSignatureUrl,
-              accepts,
-              contentType,
-              withCredentials,
-              customPublicId,
-              eager,
-              apiKey
-            })
+            await generateSignature(
+              cb,
+              params,
+              {
+                generateSignatureUrl,
+                accepts,
+                contentType,
+                withCredentials,
+                customPublicId,
+                eager,
+                apiKey,
+                resourceType
+              },
+              logging
+            )
         })
       },
       (error, result) => {
