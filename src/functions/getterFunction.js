@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+axios.interceptors.response.use((response) => response.data)
+
 export const getterFunction = ({
   url,
   data,
@@ -7,7 +9,6 @@ export const getterFunction = ({
   contentType,
   withCredentials
 }) => {
-  axios.interceptors.response.use((response) => response.data)
   axios.defaults.headers.common['Accepts'] = accepts
   axios.defaults.headers.common['Content-Type'] = contentType
   axios.defaults.withCredentials = withCredentials
