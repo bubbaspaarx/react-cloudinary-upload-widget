@@ -1,6 +1,6 @@
 # react-cloudinary-upload-widget
 
-> react wrapper for cloudinary upload widget. Currently only working with unsigned uploads. Please check you have an upload preset set and it accepts unsigned uploads. Support for signed uploads will be added soon. 
+> react wrapper for cloudinary upload widget. Currently only working with unsigned uploads. Please check you have an upload preset set and it accepts unsigned uploads.
 
 [![NPM](https://img.shields.io/npm/v/react-cloudinary-upload-widget.svg)](https://www.npmjs.com/package/react-cloudinary-upload-widget) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
