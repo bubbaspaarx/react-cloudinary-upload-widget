@@ -39,8 +39,8 @@ const myWidget = (
         ...(generateSignatureUrl && { use_filename: use_filename }),
         ...(generateSignatureUrl && { unique_filename: unique_filename }),
         ...(generateSignatureUrl && {
-          prepareUploadParams: (cb, params) =>
-            generateSignature(cb, params, {
+          prepareUploadParams: async (cb, params) =>
+            await generateSignature(cb, params, {
               generateSignatureUrl,
               accepts,
               contentType,
