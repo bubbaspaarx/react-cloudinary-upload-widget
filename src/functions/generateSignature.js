@@ -20,6 +20,7 @@ const generateSignature = (
   Promise.all(
     params.map((req) => {
       const uploadParams = req
+      logging && console.log(req)
       return getterFunction({
         url: generateSignatureUrl,
         data: {
