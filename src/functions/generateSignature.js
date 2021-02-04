@@ -24,6 +24,9 @@ const generateSignature = (
         url: generateSignatureUrl,
         data: {
           params_to_sign: {
+            ...(req.filename_override && {
+              filename_override: req.filename_override
+            }),
             ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
             ...(req.source && { source: req.source }),
