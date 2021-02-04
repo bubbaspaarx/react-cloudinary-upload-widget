@@ -1,6 +1,6 @@
 {
   "name": "react-cloudinary-upload-widget",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "react wrapper for cloudinary upload widget",
   "author": "bubbaspaarx",
   "license": "MIT",
