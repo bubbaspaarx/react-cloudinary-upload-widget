@@ -19,16 +19,19 @@ const myWidget = (
   contentType,
   withCredentials,
   use_filename,
-  unique_filename
+  unique_filename,
+  googleDriveClientId,
+  multiple
 ) => {
   const widget =
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
       {
         // showCompletedButton: true,
-        multiple: true,
+        multiple: multiple,
         showAdvancedOptions: true,
         showPoweredBy: false,
+        googleDriveClientId: googleDriveClientId,
         sources: sources,
         ...(sourceKeys && sourceKeys),
         cloudName: cloudName,
@@ -66,6 +69,11 @@ const myWidget = (
           !!onFailure
             ? onFailure({ error: error, result: result })
             : logging && console.log({ error: error, result: result })
+        } else if (!!resourceType && result.info === 'shown') {
+          console.log('setting resourceType')
+          // document.querySelector(
+          //   '.cloudinary_fileupload'
+          // ).accept = `${resourceType}/*`
         } else {
           logging && console.log(result)
         }

@@ -23,7 +23,9 @@ const UploadWidget = ({
   contentType = 'application/json',
   withCredentials = true,
   use_filename = true,
-  unique_filename = false
+  unique_filename = false,
+  googleDriveClientId = null,
+  multiple = false
 }) => {
   const myWidgetFunction = () =>
     myWidget(
@@ -45,7 +47,9 @@ const UploadWidget = ({
       contentType,
       withCredentials,
       use_filename,
-      unique_filename
+      unique_filename,
+      googleDriveClientId,
+      multiple
     )
 
   return (

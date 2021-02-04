@@ -28,8 +28,8 @@ const App = () => (
       // // use_filename // tell Cloudinary to use the original name of the uploaded file as its public ID -> default = true,
       // // unique_filename // setting it to false, you can tell Cloudinary not to attempt to make the Public ID unique, and just use the normalized file name -> default = true
       sources={['local']}
-      cloudName={'goatagency'}
-      uploadPreset={'goatagency1'}
+      cloudName={'eg'}
+      uploadPreset={'eg'}
       buttonText={'Open'}
       style={{
         color: 'white',
@@ -42,10 +42,8 @@ const App = () => (
       onSuccess={(res) => console.log(res)}
       onFailure={(res) => console.log(res)}
       logging={true}
-      generateSignatureUrl={
-        'http://localhost:3000/api/v1/contents/generate_signature'
-      }
-      apiKey={'333719262292942'}
+      generateSignatureUrl={}
+      apiKey={''}
       accepts={'application/json'}
       contentType={'application/json'}
       withCredentials={true}
