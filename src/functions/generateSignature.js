@@ -28,6 +28,7 @@ const generateSignature = (
             ...(req.filename_override && {
               filename_override: req.filename_override
             }),
+            ...(req.headers && { headers: req.headers }),
             ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
             ...(req.source && { source: req.source }),
