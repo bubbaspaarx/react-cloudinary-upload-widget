@@ -1,8 +1,9 @@
 import React from 'react'
 
-const WidgetButton = ({ myWidgetFunction, style, buttonText }) => (
+const WidgetButton = ({ myWidgetFunction, style, buttonText, buttonType }) => (
   <>
     <button
+      type={buttonType}
       id='cloudinary_upload_button'
       style={
         style || {
@@ -20,4 +21,7 @@ const WidgetButton = ({ myWidgetFunction, style, buttonText }) => (
     </button>
   </>
 )
+WidgetButton.defaultProps = {
+  buttonType: 'button'
+}
 export default WidgetButton
