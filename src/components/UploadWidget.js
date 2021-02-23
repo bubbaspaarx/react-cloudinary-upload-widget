@@ -25,7 +25,8 @@ const UploadWidget = ({
   use_filename = true,
   unique_filename = false,
   googleDriveClientId = null,
-  multiple = false
+  multiple = false,
+  buttonType = 'button',
 }) => {
   const myWidgetFunction = () =>
     myWidget(
@@ -56,6 +57,7 @@ const UploadWidget = ({
     <WidgetButton
       myWidgetFunction={myWidgetFunction}
       buttonText={buttonText}
+      buttonType={buttonType}
       style={style}
     />
   )
