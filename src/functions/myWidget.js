@@ -46,6 +46,7 @@ const myWidget = (
         cropping: cropping,
         resourceType: resourceType,
         ...(generateSignatureUrl && { use_filename: use_filename }),
+        ...(generateSignatureUrl && { eager: eager }),
         ...(generateSignatureUrl && { unique_filename: unique_filename }),
         ...(generateSignatureUrl && {
           prepareUploadParams: async (cb, params) =>
@@ -60,7 +61,9 @@ const myWidget = (
                 customPublicId,
                 eager,
                 apiKey,
-                resourceType
+                resourceType,
+                unique_filename,
+                use_filename
               },
               logging
             )

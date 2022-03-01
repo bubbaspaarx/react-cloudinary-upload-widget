@@ -16,8 +16,8 @@ export const getterFunction = ({
   instance.defaults.withCredentials = withCredentials
   const options = {
     url: url + '?nocache=' + new Date().getTime(),
-    method: 'get',
-    params: data
+    method: 'post',
+    data: data
   }
 
   return instance(options)

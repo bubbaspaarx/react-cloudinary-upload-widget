@@ -11,7 +11,9 @@ const generateSignature = (
     customPublicId,
     eager,
     apiKey,
-    resourceType
+    resourceType,
+    unique_filename,
+    use_filename
   },
   logging
 ) => {
@@ -28,11 +30,11 @@ const generateSignature = (
             ...(req.custom_coordinates && {
               custom_coordinates: req.custom_coordinates
             }),
+            ...(eager && { eager: eager }),
             ...(req.filename_override && {
               filename_override: req.filename_override
             }),
             ...(req.headers && { headers: req.headers }),
-            ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
             ...(req.source && { source: req.source }),
             timestamp: req.timestamp,
@@ -40,7 +42,7 @@ const generateSignature = (
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
             }),
-            ...(req.use_filename && { use_filename: req.use_filename })
+            use_filename: use_filename
           }
         },
         accepts: accepts,
@@ -50,6 +52,8 @@ const generateSignature = (
         logging && console.log(response, 'Signature Response')
         return Object.assign(
           {
+            ...(eager && { eager: eager }),
+            ...(customPublicId && { public_id: customPublicId }),
             signature: response,
             api_key: apiKey,
             resource_type: resourceType
