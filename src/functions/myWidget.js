@@ -25,7 +25,20 @@ const myWidget = (
   multiple,
   widgetStyles,
   destroy,
-  autoClose
+  autoClose,
+
+  //Necessary props
+  thumbnails,
+  croppingAspectRatio,
+  croppingShowDimensions,
+  clientAllowedFormats,
+  maxFileSize,
+  maxImageWidth,
+  maxImageHeight,
+  minImageWidth,
+  minImageHeight,
+  maxVideoFileSize,
+  maxRawFileSize
 ) => {
   const widget =
     !!window.cloudinary &&
@@ -45,6 +58,18 @@ const myWidget = (
         folder: folder,
         cropping: cropping,
         resourceType: resourceType,
+        //Necessary props
+        thumbnails,
+        croppingAspectRatio,
+        croppingShowDimensions,
+        clientAllowedFormats,
+        maxFileSize,
+        maxImageWidth,
+        maxImageHeight,
+        minImageWidth,
+        minImageHeight,
+        maxVideoFileSize,
+        maxRawFileSize,
         ...(generateSignatureUrl && { use_filename: use_filename }),
         ...(generateSignatureUrl && { eager: eager }),
         ...(generateSignatureUrl && { unique_filename: unique_filename }),
