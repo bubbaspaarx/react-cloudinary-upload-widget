@@ -3791,6 +3791,8 @@ var UploadWidget = function UploadWidget(_ref) {
       style = _ref$style === void 0 ? null : _ref$style,
       _ref$widgetStyles = _ref.widgetStyles,
       widgetStyles = _ref$widgetStyles === void 0 ? null : _ref$widgetStyles,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? '' : _ref$className,
       _ref$folder = _ref.folder,
       folder = _ref$folder === void 0 ? null : _ref$folder,
       _ref$cropping = _ref.cropping,
@@ -3838,7 +3840,8 @@ var UploadWidget = function UploadWidget(_ref) {
     myWidgetFunction: myWidgetFunction,
     buttonText: buttonText,
     buttonType: buttonType,
-    style: style
+    style: style,
+    className: className
   });
 };
 
