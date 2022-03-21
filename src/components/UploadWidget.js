@@ -11,6 +11,7 @@ const UploadWidget = ({
   buttonText = null,
   style = null,
   widgetStyles = null,
+  className = '',
   folder = null,
   cropping = true,
   generateSignatureUrl,
@@ -66,6 +67,7 @@ const UploadWidget = ({
       buttonText={buttonText}
       buttonType={buttonType}
       style={style}
+      className={className}
     />
   )
 }
