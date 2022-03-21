@@ -39,6 +39,7 @@ const Example = () => {
               borderRadius: '4px',
               height: '25px'
             }} // inline styling only or style id='cloudinary_upload_button'
+        className="border-gray-200 border-radius-5" // add classes to the button
         folder={'my_folder'} // set cloudinary folder name to send file
         cropping={false} // set ability to crop images -> default = true
         // https://support.cloudinary.com/hc/en-us/articles/203062071-How-to-crop-images-via-the-Upload-Widget-#:~:text=Click%20on%20the%20%22Edit%22%20link,OK%22%20and%20Save%20the%20changes.
