@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WidgetButton = ({ myWidgetFunction, style, className = '', buttonText, buttonType }) => (
+const WidgetButton = ({ myWidgetFunction, style, className = '', disabled, buttonText, buttonType }) => (
   <>
     <button
       type={buttonType}
@@ -16,6 +16,7 @@ const WidgetButton = ({ myWidgetFunction, style, className = '', buttonText, but
         }
       }
       className={className}
+      disabled={disabled}
       onClick={() => myWidgetFunction()}
     >
       {buttonText || 'Upload files'}
