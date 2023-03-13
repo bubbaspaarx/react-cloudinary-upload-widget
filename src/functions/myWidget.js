@@ -1,4 +1,5 @@
 import generateSignature from './generateSignature'
+import win from 'window'
 
 // * put all new variables at the end
 const myWidget = (
@@ -27,7 +28,7 @@ const myWidget = (
   destroy,
   autoClose
 ) => {
-  window.myWidget ||=
+  win.myWidget ||=
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
       {
@@ -74,12 +75,12 @@ const myWidget = (
           logging && console.log('Done! Here is the image info: ', result.info)
           logging && console.log(result)
           !!onSuccess && onSuccess(result)
-          destroy && window.widget.destroy()
+          destroy && win.widget.destroy()
         } else if (error) {
           onFailure
             ? onFailure({ error: error, result: result })
             : logging && console.log({ error: error, result: result })
-          destroy && window.widget.destroy()
+          destroy && win.widget.destroy()
         } else if (!!resourceType && result.info === 'shown') {
           logging && console.log('setting resourceType')
           // document.querySelector(
@@ -90,7 +91,7 @@ const myWidget = (
         }
       }
     )
-  window.myWidget.open()
+  win.myWidget.open()
 }
 
 export default myWidget

@@ -9,10 +9,11 @@ export default {
       format: 'cjs',
       exports: 'named',
       sourcemap: true,
-      strict: false,
+      strict: true,
       globals: {
         react: 'React',
-        axios: 'Axios'
+        axios: 'Axios',
+        window: 'window'
       }
     }
   ],
