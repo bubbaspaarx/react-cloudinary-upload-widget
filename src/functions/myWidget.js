@@ -75,8 +75,8 @@ const myWidget = (
           logging && console.log(result)
           !!onSuccess && onSuccess(result)
           destroy && widget.destroy()
-        } else if (!!error) {
-          !!onFailure
+        } else if (error) {
+          onFailure
             ? onFailure({ error: error, result: result })
             : logging && console.log({ error: error, result: result })
           destroy && widget.destroy()

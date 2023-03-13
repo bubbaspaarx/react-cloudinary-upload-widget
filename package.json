@@ -22,8 +22,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "axios": "^0.21.4"
+    "axios": "^0.21.4",
+    "react": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -46,8 +46,9 @@
     "@babel/plugin-syntax-import-meta": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
     "@testing-library/react-hooks": "^3.2.1",
-    "axios": "^0.20.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^6.6.0",
@@ -59,10 +60,9 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^2.0.1",
-    "react": "^16.9.0",
     "react-scripts": "^3.4.0",
     "react-test-renderer": "^16.9.0",
-    "rollup": "^1.1.2",
+    "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-json": "^4.0.0",

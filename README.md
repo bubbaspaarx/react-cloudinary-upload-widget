@@ -13,7 +13,7 @@ npm install --save react-cloudinary-upload-widget
 ```jsx
 import React from 'react'
 
-import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget'
+import { WidgetLoader, Widget } from 'react'-cloudinary-upload-widget'
 
 const Example = () => {
   return (
