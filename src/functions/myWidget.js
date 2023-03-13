@@ -27,7 +27,7 @@ const myWidget = (
   destroy,
   autoClose
 ) => {
-  const widget =
+  window.myWidget ||=
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
       {
@@ -74,12 +74,12 @@ const myWidget = (
           logging && console.log('Done! Here is the image info: ', result.info)
           logging && console.log(result)
           !!onSuccess && onSuccess(result)
-          destroy && widget.destroy()
+          destroy && window.widget.destroy()
         } else if (error) {
           onFailure
             ? onFailure({ error: error, result: result })
             : logging && console.log({ error: error, result: result })
-          destroy && widget.destroy()
+          destroy && window.widget.destroy()
         } else if (!!resourceType && result.info === 'shown') {
           logging && console.log('setting resourceType')
           // document.querySelector(
@@ -90,7 +90,7 @@ const myWidget = (
         }
       }
     )
-  widget.open()
+  window.myWidget.open()
 }
 
 export default myWidget
