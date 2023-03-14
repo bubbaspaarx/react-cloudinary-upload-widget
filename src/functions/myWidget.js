@@ -71,14 +71,15 @@ const myWidget = (
     if (!error && result && result.event === 'success') {
       logging && console.log('Done! Here is the image info: ', result.info)
       logging && console.log(result)
-      !!onSuccess && window.onSuccess(result)
+      !!window.cloudinaryOnSuccessCallback &&
+        window.cloudinaryOnSuccessCallback(result)
       if (destroy) {
         window.myWidget.destroy()
         window.myWidget = null
       }
     } else if (error) {
-      onFailure
-        ? onFailure({ error: error, result: result })
+      window.cloudinaryOnFailureCallback
+        ? window.cloudinaryOnFailureCallback({ error: error, result: result })
         : logging && console.log({ error: error, result: result })
       if (destroy) {
         window.myWidget.destroy()
@@ -91,12 +92,12 @@ const myWidget = (
     }
   }
 
+  window.cloudinaryOnSuccessCallback = onSuccess
+  window.cloudinaryOnFailureCallback = onFailure
+
   if (window.myWidget) {
-    debugger
-    window.onSuccess = onSuccess
     window.myWidget.update(widgetOptions)
   } else {
-    window.onSuccess = onSuccess
     window.myWidget = window.cloudinary.createUploadWidget(
       widgetOptions,
       resultCallback
