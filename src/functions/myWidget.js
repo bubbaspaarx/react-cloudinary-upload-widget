@@ -86,7 +86,7 @@ const myWidget = (
   }
 
   if (window.myWidget) {
-    window.myWidget.update(widgetOptions, resultCallback)
+    window.myWidget.update(widgetOptions)
   } else {
     window.myWidget = window.cloudinary.createUploadWidget(
       widgetOptions,
