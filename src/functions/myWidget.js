@@ -72,12 +72,12 @@ const myWidget = (
       logging && console.log('Done! Here is the image info: ', result.info)
       logging && console.log(result)
       !!onSuccess && onSuccess(result)
-      destroy && window.widget.destroy()
+      destroy && window.myWidget.destroy()
     } else if (error) {
       onFailure
         ? onFailure({ error: error, result: result })
         : logging && console.log({ error: error, result: result })
-      destroy && window.widget.destroy()
+      destroy && window.myWidget.destroy()
     } else if (!!resourceType && result.info === 'shown') {
       logging && console.log('setting resourceType')
     } else {
