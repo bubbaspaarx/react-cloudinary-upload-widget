@@ -92,6 +92,7 @@ const myWidget = (
   }
 
   if (window.myWidget) {
+    debugger
     window.myWidget.update(widgetOptions)
   } else {
     window.myWidget = window.cloudinary.createUploadWidget(
