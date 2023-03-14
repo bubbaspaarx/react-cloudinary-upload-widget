@@ -12,6 +12,7 @@ export default (url) => {
 
     return () => {
       document.body.removeChild(script)
+      window.myWidget = null
     }
   }, [url])
 }
