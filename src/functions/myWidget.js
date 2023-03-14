@@ -27,7 +27,6 @@ const myWidget = (
   destroy,
   autoClose
 ) => {
-  debugger
   window.myWidget ||=
     !!window.cloudinary &&
     window.cloudinary.createUploadWidget(
