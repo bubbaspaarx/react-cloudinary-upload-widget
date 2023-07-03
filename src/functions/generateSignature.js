@@ -6,15 +6,15 @@ const generateSignature = (
   {
     generateSignatureUrl,
     getCustomHeaders,
-    // accepts,
-    // contentType,
-    // withCredentials,
+    accepts,
+    contentType,
+    withCredentials,
     customPublicId,
     eager,
+    resourceType,
     apiKey,
-    resourceType
-    // unique_filename,
-    // use_filename
+    uniqueFilename,
+    useFilename
   },
   logging
 ) => {
@@ -42,13 +42,13 @@ const generateSignature = (
             unique_filename: req.unique_filename,
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
-            })
-            // use_filename: use_filename
+            }),
+            use_filename: useFilename
           }
         },
-        // accepts: accepts,
-        // contentType: contentType,
-        // withCredentials: withCredentials
+        accepts: accepts,
+        contentType: contentType,
+        withCredentials: withCredentials,
         getCustomHeaders
       }).then((response) => {
         logging && console.log(response, 'Signature Response')
@@ -56,8 +56,8 @@ const generateSignature = (
           {
             ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
-            signature: response,
-            api_key: apiKey,
+            signature: response.signature || response,
+            api_key: response.api_key || apiKey,
             resource_type: resourceType
           },
           uploadParams
