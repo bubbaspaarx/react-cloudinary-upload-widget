@@ -56,8 +56,8 @@ const generateSignature = (
           {
             ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
-            signature: response,
-            api_key: apiKey,
+            signature: response.signature,
+            api_key: response.api_key,
             resource_type: resourceType
           },
           uploadParams
