@@ -1,6 +1,6 @@
 import React from 'react'
 import WidgetButton from './WidgetButton'
-import createUploadDialog from 'react-cloudinary-upload-widget/src/functions/createUploadDialog'
+import myWidget from '../functions/myWidget'
 
 const UploadWidget = ({
   sources = [],
@@ -20,11 +20,11 @@ const UploadWidget = ({
   logging = true,
   customPublicId = null,
   eager = null,
-  withCredentials = true,
   apiKey = null,
   accepts = 'application/json',
   contentType = 'application/json',
-  // use_filename = true,
+  withCredentials = true,
+  use_filename = true,
   unique_filename = false,
   googleDriveClientId = null,
   multiple = false,
@@ -33,8 +33,8 @@ const UploadWidget = ({
   autoClose = true
 }) => {
   // * put all new variables at the end
-  const openUploadDialogFunction = () =>
-    createUploadDialog(
+  const myWidgetFunction = () =>
+    myWidget(
       sources,
       sourceKeys,
       resourceType,
@@ -49,11 +49,11 @@ const UploadWidget = ({
       logging,
       customPublicId,
       eager,
-      // apiKey,
+      apiKey,
       accepts,
       contentType,
       withCredentials,
-      // use_filename,
+      use_filename,
       unique_filename,
       googleDriveClientId,
       multiple,
@@ -64,7 +64,7 @@ const UploadWidget = ({
 
   return (
     <WidgetButton
-      myWidgetFunction={openUploadDialogFunction}
+      myWidgetFunction={myWidgetFunction}
       buttonText={buttonText}
       buttonType={buttonType}
       style={style}
