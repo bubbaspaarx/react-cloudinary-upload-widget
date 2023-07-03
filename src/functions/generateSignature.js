@@ -5,19 +5,20 @@ const generateSignature = (
   params,
   {
     generateSignatureUrl,
-    accepts,
-    contentType,
-    withCredentials,
+    getCustomHeaders,
+    // accepts,
+    // contentType,
+    // withCredentials,
     customPublicId,
     eager,
     apiKey,
-    resourceType,
-    unique_filename,
-    use_filename
+    resourceType
+    // unique_filename,
+    // use_filename
   },
   logging
 ) => {
-  params = [].concat(params) //params can be a single object or an array of objects
+  params = [].concat(params) // params can be a single object or an array of objects
   logging && console.log(params, 'Params')
   Promise.all(
     params.map((req) => {
@@ -41,13 +42,14 @@ const generateSignature = (
             unique_filename: req.unique_filename,
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
-            }),
-            use_filename: use_filename
+            })
+            // use_filename: use_filename
           }
         },
-        accepts: accepts,
-        contentType: contentType,
-        withCredentials: withCredentials
+        // accepts: accepts,
+        // contentType: contentType,
+        // withCredentials: withCredentials
+        getCustomHeaders
       }).then((response) => {
         logging && console.log(response, 'Signature Response')
         return Object.assign(
