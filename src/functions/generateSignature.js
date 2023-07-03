@@ -6,9 +6,9 @@ const generateSignature = (
   {
     generateSignatureUrl,
     getCustomHeaders,
-    // accepts,
-    // contentType,
-    // withCredentials,
+    accepts,
+    contentType,
+    withCredentials,
     customPublicId,
     eager,
     apiKey,
@@ -46,9 +46,9 @@ const generateSignature = (
             // use_filename: use_filename
           }
         },
-        // accepts: accepts,
-        // contentType: contentType,
-        // withCredentials: withCredentials
+        accepts: accepts,
+        contentType: contentType,
+        withCredentials: withCredentials,
         getCustomHeaders
       }).then((response) => {
         logging && console.log(response, 'Signature Response')
