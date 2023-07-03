@@ -1,6 +1,6 @@
 import React from 'react'
 import WidgetButton from './WidgetButton'
-import createUploadDialog from 'react-cloudinary-upload-widget/src/functions/createUploadDialog'
+import createUploadDialog from '../functions/createUploadDialog'
 
 const UploadWidget = ({
   sources = [],
