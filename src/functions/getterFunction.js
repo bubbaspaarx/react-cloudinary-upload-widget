@@ -4,7 +4,31 @@ const instance = axios.create()
 
 instance.interceptors.response.use((response) => response.data)
 
-export const getterFunction = async ({
+export const getterFunction = ({
+  url,
+  data,
+  accepts,
+  contentType,
+  withCredentials,
+  getCustomHeaders
+}) => {
+  if (!getCustomHeaders) {
+    instance.defaults.headers.common['Accepts'] = accepts
+    instance.defaults.headers.common['Content-Type'] = contentType
+    instance.defaults.withCredentials = withCredentials
+    const options = {
+      url: url + '?nocache=' + new Date().getTime(),
+      method: 'post',
+      data: data
+    }
+
+    return instance(options)
+  } else {
+    getterCustomHeaders(url, data, getCustomHeaders)
+  }
+}
+
+const getterCustomHeaders = async ({
   url,
   data,
   getCustomHeaders

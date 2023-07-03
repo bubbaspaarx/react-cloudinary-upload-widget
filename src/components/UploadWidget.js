@@ -1,6 +1,6 @@
 import React from 'react'
 import WidgetButton from './WidgetButton'
-import createUploadDialog from '../functions/createUploadDialog'
+import myWidget from '../functions/myWidget'
 
 const UploadWidget = ({
   sources = [],
@@ -24,8 +24,8 @@ const UploadWidget = ({
   accepts = 'application/json',
   contentType = 'application/json',
   withCredentials = true,
-  useFilename = true,
-  uniqueFilename = false,
+  use_filename = true,
+  unique_filename = false,
   googleDriveClientId = null,
   multiple = false,
   buttonType = 'button',
@@ -33,8 +33,8 @@ const UploadWidget = ({
   autoClose = true
 }) => {
   // * put all new variables at the end
-  const openUploadDialogFunction = () =>
-    createUploadDialog(
+  const myWidgetFunction = () =>
+    myWidget(
       sources,
       sourceKeys,
       resourceType,
@@ -53,8 +53,8 @@ const UploadWidget = ({
       accepts,
       contentType,
       withCredentials,
-      useFilename,
-      uniqueFilename,
+      use_filename,
+      unique_filename,
       googleDriveClientId,
       multiple,
       widgetStyles,
@@ -64,7 +64,7 @@ const UploadWidget = ({
 
   return (
     <WidgetButton
-      myWidgetFunction={openUploadDialogFunction}
+      myWidgetFunction={myWidgetFunction}
       buttonText={buttonText}
       buttonType={buttonType}
       style={style}

@@ -1,7 +1,7 @@
-import generateSignature from 'react-cloudinary-upload-widget/src/functions/generateSignature'
+import generateSignature from './generateSignature'
 
 // * put all new variables at the end
-const createUploadDialog = (
+const myWidget = (
   sources,
   sourceKeys,
   resourceType,
@@ -20,8 +20,8 @@ const createUploadDialog = (
   accepts,
   contentType,
   withCredentials,
-  useFilename,
-  uniqueFilename,
+  use_filename,
+  unique_filename,
   googleDriveClientId,
   multiple,
   widgetStyles,
@@ -43,9 +43,9 @@ const createUploadDialog = (
     folder: folder,
     cropping: cropping,
     resourceType: resourceType,
-    ...(generateSignatureUrl && { use_filename: useFilename }),
+    ...(generateSignatureUrl && { use_filename: use_filename }),
     ...(generateSignatureUrl && { eager: eager }),
-    ...(generateSignatureUrl && { unique_filename: uniqueFilename }),
+    ...(generateSignatureUrl && { unique_filename: unique_filename }),
     ...(generateSignatureUrl && {
       prepareUploadParams: async (cb, params) =>
         generateSignature(
@@ -60,9 +60,9 @@ const createUploadDialog = (
             customPublicId,
             eager,
             apiKey,
-            resourceType,
-            uniqueFilename,
-            useFilename
+            unique_filename,
+            use_filename,
+            resourceType
           },
           logging
         )
@@ -76,16 +76,16 @@ const createUploadDialog = (
       !!window.cloudinaryOnSuccessCallback &&
         window.cloudinaryOnSuccessCallback(result)
       if (destroy) {
-        window.createUploadDialog.destroy()
-        window.createUploadDialog = null
+        window.myWidget.destroy()
+        window.myWidget = null
       }
     } else if (error) {
       window.cloudinaryOnFailureCallback
         ? window.cloudinaryOnFailureCallback({ error: error, result: result })
         : logging && console.log({ error: error, result: result })
       if (destroy) {
-        window.createUploadDialog.destroy()
-        window.createUploadDialog = null
+        window.myWidget.destroy()
+        window.myWidget = null
       }
     } else if (!!resourceType && result.info === 'shown') {
       logging && console.log('setting resourceType')
@@ -97,16 +97,16 @@ const createUploadDialog = (
   window.cloudinaryOnSuccessCallback = onSuccess
   window.cloudinaryOnFailureCallback = onFailure
 
-  if (window.createUploadDialog) {
-    window.createUploadDialog.update(widgetOptions)
+  if (window.myWidget) {
+    window.myWidget.update(widgetOptions)
   } else {
-    window.createUploadDialog = window.cloudinary.createUploadWidget(
+    window.myWidget = window.cloudinary.createUploadWidget(
       widgetOptions,
       resultCallback
     )
   }
 
-  window.createUploadDialog.open()
+  window.myWidget.open()
 }
 
-export default createUploadDialog
+export default myWidget

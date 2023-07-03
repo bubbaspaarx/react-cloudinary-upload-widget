@@ -11,14 +11,14 @@ const generateSignature = (
     withCredentials,
     customPublicId,
     eager,
-    resourceType,
     apiKey,
-    uniqueFilename,
-    useFilename
+    resourceType,
+    unique_filename,
+    use_filename
   },
   logging
 ) => {
-  params = [].concat(params) // params can be a single object or an array of objects
+  params = [].concat(params) //params can be a single object or an array of objects
   logging && console.log(params, 'Params')
   Promise.all(
     params.map((req) => {
@@ -43,7 +43,7 @@ const generateSignature = (
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
             }),
-            use_filename: useFilename
+            use_filename: use_filename
           }
         },
         accepts: accepts,
