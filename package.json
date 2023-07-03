@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@rollup/plugin-babel": "^6.0.3",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react-hooks": "^3.2.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
