@@ -14,7 +14,7 @@ const generateSignature = (
     apiKey,
     resourceType
     // unique_filename,
-    // use_filename
+    use_filename
   },
   logging
 ) => {
@@ -43,7 +43,7 @@ const generateSignature = (
             ...(req.upload_preset && {
               upload_preset: req.upload_preset
             })
-            // use_filename: use_filename
+            use_filename: use_filename
           }
         },
         accepts: accepts,

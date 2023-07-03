@@ -20,7 +20,7 @@ const createUploadDialog = (
   accepts,
   contentType,
   withCredentials,
-  // use_filename,
+  use_filename,
   // unique_filename,
   googleDriveClientId,
   multiple,
@@ -43,7 +43,7 @@ const createUploadDialog = (
     folder: folder,
     cropping: cropping,
     resourceType: resourceType,
-    // ...(generateSignatureUrl && { use_filename: use_filename }),
+    ...(generateSignatureUrl && { use_filename: use_filename }),
     ...(generateSignatureUrl && { eager: eager }),
     // ...(generateSignatureUrl && { unique_filename: unique_filename }),
     ...(generateSignatureUrl && {
@@ -62,7 +62,7 @@ const createUploadDialog = (
             // apiKey,
             resourceType
             // unique_filename,
-            // use_filename
+            use_filename
           },
           logging
         )
