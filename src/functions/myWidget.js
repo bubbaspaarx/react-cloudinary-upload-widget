@@ -10,6 +10,7 @@ const myWidget = (
   folder,
   cropping,
   generateSignatureUrl,
+  getCustomHeaders,
   onSuccess,
   onFailure,
   logging,
@@ -52,15 +53,16 @@ const myWidget = (
           params,
           {
             generateSignatureUrl,
+            getCustomHeaders,
             accepts,
             contentType,
             withCredentials,
             customPublicId,
             eager,
             apiKey,
-            resourceType,
             unique_filename,
-            use_filename
+            use_filename,
+            resourceType
           },
           logging
         )

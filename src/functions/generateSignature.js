@@ -5,6 +5,7 @@ const generateSignature = (
   params,
   {
     generateSignatureUrl,
+    getCustomHeaders,
     accepts,
     contentType,
     withCredentials,
@@ -47,15 +48,16 @@ const generateSignature = (
         },
         accepts: accepts,
         contentType: contentType,
-        withCredentials: withCredentials
+        withCredentials: withCredentials,
+        getCustomHeaders
       }).then((response) => {
         logging && console.log(response, 'Signature Response')
         return Object.assign(
           {
             ...(eager && { eager: eager }),
             ...(customPublicId && { public_id: customPublicId }),
-            signature: response,
-            api_key: apiKey,
+            signature: response.signature,
+            api_key: response.api_key,
             resource_type: resourceType
           },
           uploadParams

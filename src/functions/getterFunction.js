@@ -4,21 +4,33 @@ const instance = axios.create()
 
 instance.interceptors.response.use((response) => response.data)
 
-export const getterFunction = ({
+export const getterFunction = async ({
   url,
   data,
-  accepts,
-  contentType,
-  withCredentials
+  getCustomHeaders
 }) => {
-  instance.defaults.headers.common['Accepts'] = accepts
-  instance.defaults.headers.common['Content-Type'] = contentType
-  instance.defaults.withCredentials = withCredentials
-  const options = {
-    url: url + '?nocache=' + new Date().getTime(),
-    method: 'post',
-    data: data
+  const headers = { 'Content-Type': 'application/json' }
+
+  if (getCustomHeaders) {
+    const customHeaders = await getCustomHeaders()
+
+    for (const [key, value] of Object.entries(customHeaders)) {
+      headers[key] = value
+    }
   }
 
-  return instance(options)
+  const endpoint = url + '?nocache=' + new Date().getTime()
+
+  // eslint-disable-next-line no-undef
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers
+  })
+
+  if (!response.ok) {
+    throw new Error('Error fetching media upload signature.')
+  }
+
+  return response.json()
 }
